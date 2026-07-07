@@ -197,7 +197,16 @@
             <div class="row"><div class="ic">👤</div><div class="m"><b>Dwight K.</b><span>Salary · incl. MN Paid Leave <span class="tag">$18</span></span></div><div class="amt">$2,110</div></div>
             <div class="row"><div class="ic">👤</div><div class="m"><b>Jorge P.</b><span>H-2A · FICA exempt <span class="tag g">H2A</span></span></div><div class="amt">$1,505</div></div>
             <div class="row"><div class="ic">👤</div><div class="m"><b>Anna W.</b><span>Hourly · 76 hrs</span></div><div class="amt">$1,824</div></div>
-            <div class="row"><div class="ic">👥</div><div class="m"><b>+ 7 more employees</b><span>Tap to expand</span></div><div class="amt" style="color:var(--ink3)">$9,468</div></div>
+            <div id="prHidden" style="display:none;">
+              <div class="row"><div class="ic">👤</div><div class="m"><b>Luis R.</b><span>H-2A · FICA exempt <span class="tag g">H2A</span></span></div><div class="amt">$1,412</div></div>
+              <div class="row"><div class="ic">👤</div><div class="m"><b>Emma B.</b><span>Hourly · 74 hrs</span></div><div class="amt">$1,190</div></div>
+              <div class="row"><div class="ic">👤</div><div class="m"><b>Tyler S.</b><span>Salary</span></div><div class="amt">$1,565</div></div>
+              <div class="row"><div class="ic">👤</div><div class="m"><b>Rosa M.</b><span>H-2A · FICA exempt <span class="tag g">H2A</span></span></div><div class="amt">$1,088</div></div>
+              <div class="row"><div class="ic">👤</div><div class="m"><b>Ben K.</b><span>Hourly · 88 hrs</span></div><div class="amt">$1,634</div></div>
+              <div class="row"><div class="ic">👤</div><div class="m"><b>Nadia F.</b><span>Hourly · 61 hrs</span></div><div class="amt">$1,279</div></div>
+              <div class="row"><div class="ic">👤</div><div class="m"><b>Cole D.</b><span>Seasonal</span></div><div class="amt">$1,300</div></div>
+            </div>
+            <div class="row" id="prMore" onclick="prToggle()" style="cursor:pointer;"><div class="ic">👥</div><div class="m"><b id="prMoreLbl">+ 7 more employees</b><span id="prMoreHint">Tap to expand</span></div><div class="amt" style="color:var(--ink3)">$9,468</div></div>
           </div>
           <div class="card">
             <div class="ch"><span class="t">Run summary</span></div>
@@ -278,6 +287,13 @@
     return '<div class="col"><div class="stack"><i class="out" style="height:'+d[0]+'%"></i><i class="in" style="height:'+d[1]+'%"></i></div><em>'+d[2]+'</em></div>';
   }).join('');
   function approve(){var b=document.getElementById('approveBtn');b.textContent='Approved ✓';b.style.background='#047a54';}
+  function prToggle(){
+    var h=document.getElementById('prHidden');
+    var open=h.style.display==='none';
+    h.style.display=open?'':'none';
+    document.getElementById('prMoreLbl').textContent=open?'Show fewer':'+ 7 more employees';
+    document.getElementById('prMoreHint').textContent=open?'Tap to collapse':'Tap to expand';
+  }
   var accr={inc:'$651,900',exp:'$556,320',net:'$95,580'},cash={inc:'$612,400',exp:'$540,860',net:'$71,540'};
   function basis(el,which){
     document.querySelectorAll('.seg button').forEach(function(x){x.classList.remove('on');});
